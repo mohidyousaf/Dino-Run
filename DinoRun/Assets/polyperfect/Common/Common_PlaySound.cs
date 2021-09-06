@@ -19,7 +19,7 @@ namespace PolyPerfect
     [SerializeField]
     private AudioClip sleeping;
 
-    void AnimalSound()
+    public void AnimalSound()
     {
       if (animalSound)
       {
