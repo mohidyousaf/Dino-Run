@@ -38,6 +38,8 @@ namespace PolyPerfect
                 GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
                 //gameObject.SetActive(false);
                 myTrex.SetActive(true);
+                myTrex.transform.rotation=  gameObject.transform.rotation;
+                
                 Destroy(gameObject);
             }
 
