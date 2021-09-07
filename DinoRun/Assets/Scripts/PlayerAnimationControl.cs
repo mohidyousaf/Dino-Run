@@ -34,7 +34,8 @@ namespace PolyPerfect
         {
             if (NextState)
             {
-                anim.SetBool("trex", true);
+                // anim.SetBool("isEating",true);
+                // anim.SetBool("trex", true);
                 NextState = false;
             }
 
