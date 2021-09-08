@@ -13,7 +13,7 @@ public class Swipe : MonoBehaviour
     //changes
     public Transform player;
 
-    private float change = 3, xNew;
+    private float change = 7, xNew;
     
     public Vector3 newPos;
 

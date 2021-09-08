@@ -5,6 +5,7 @@ namespace PolyPerfect
 {
     public class PlayerAnimationControl : MonoBehaviour
     {
+        public GameObject Trex;
         public Animator anim;
         // Start is called before the first frame update
         public bool GameEnded = false;
@@ -34,9 +35,11 @@ namespace PolyPerfect
         {
             if (NextState)
             {
-                // anim.SetBool("isEating",true);
-                // anim.SetBool("trex", true);
-                NextState = false;
+                GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
+                //gameObject.SetActive(false);
+                myTrex.SetActive(true);
+                myTrex.transform.rotation = gameObject.transform.rotation;
+                Destroy(gameObject);
             }
 
             if (!GameEnded && !Eating)
