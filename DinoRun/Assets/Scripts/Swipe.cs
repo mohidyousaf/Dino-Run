@@ -85,6 +85,7 @@ public class Swipe : MonoBehaviour
             }  
             newPos = new Vector3(xNew, player.position.y, player.position.z);
             player.position = newPos;
+            //player.position = Vector3.MoveTowards(player.position, newPos, Time.deltaTime);
             //Debug.Log("The magnitude is "+ deltaTouch.magnitude);
             reset();
             //startTouch = deltaTouch = Vector2.zero;

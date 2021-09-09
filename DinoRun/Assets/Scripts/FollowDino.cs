@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class FollowDino : MonoBehaviour
 {
+    public Transform currentDino;
     public Vector3 offset = new Vector3 (0,12,-22);
 
-    public GameObject dino;
+    //public GameObject dino;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(dino.transform.position);
+        currentDino = GameObject.FindWithTag("Dino").transform;
+        //Debug.Log(dino.transform.position);
         
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position= dino.transform.position + new Vector3(0,12,-12);
+        if (!currentDino){
+            changeDino();
+        }
+        transform.position = currentDino.position + new Vector3(0,12,-12);
         
+    }
+
+    void changeDino()
+    {
+        currentDino = GameObject.FindWithTag("Dino").transform;
     }
 }
