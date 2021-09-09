@@ -11,7 +11,7 @@ public class EatEgg : MonoBehaviour
        
         if (collision.gameObject.CompareTag("Dino"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject);    
         }
     }
     // Start is called before the first frame update

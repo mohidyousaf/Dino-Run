@@ -33,11 +33,15 @@ namespace PolyPerfect
         // Update is called once per frame
         void Update()
         {
+            anim = GetComponent<Animator>();
+            Debug.Log("i am here");
             if (NextState)
             {
                 GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
                 //gameObject.SetActive(false);
                 myTrex.SetActive(true);
+                // anim.SetBool("isAttacking", false);
+                // anim.SetBool("isRunning", true);
                 myTrex.transform.rotation = gameObject.transform.rotation;
                 Destroy(gameObject);
             }
