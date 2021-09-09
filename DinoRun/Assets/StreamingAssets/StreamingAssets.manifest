@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 504754476
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: path1
+      Dependencies: {}
