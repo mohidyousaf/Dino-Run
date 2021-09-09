@@ -17,7 +17,13 @@ namespace PolyPerfect
         {
             if (target.gameObject.CompareTag("Egg"))
             {
+                Destroy(target.gameObject);
+                //while(target.gameObject)
+                //{
+                    
+                //}
                 NextState = true;
+                
             }
         }
         //public Common_PlaySound soundPlayer;
@@ -65,5 +71,6 @@ namespace PolyPerfect
             Debug.Log("waiting()");
             yield return (new WaitForSeconds(seconds));
         }
+
     }
 }

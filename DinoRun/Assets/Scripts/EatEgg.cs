@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class EatEgg : MonoBehaviour
 {
-
-
-    private void OnTriggerEnter(Collider collision)
-    {
-       
-        if (collision.gameObject.CompareTag("Dino"))
-        {
-            Destroy(gameObject);
-        }
-    }
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    
+    private void OnCollisionEnter(Collision col)
     {
-        
+       
+        if (col.gameObject.CompareTag("Dino"))
+        {
+            Destroy(gameObject);
+        }
     }
+    
+    // Start is called before the first frame update
+
 }
