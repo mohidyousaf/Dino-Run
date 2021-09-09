@@ -20,6 +20,7 @@ public class Swipe : MonoBehaviour
 
     public void Start(){
         //isDraging = 'a';
+        player = GameObject.FindWithTag("Dino").transform;
         isMiddle = true;
         isDraging = false;
         swipeLeft = swipeRight = false;
@@ -28,9 +29,17 @@ public class Swipe : MonoBehaviour
         //a = start; b= mouse dragging; c = mouse down
     }
 
+    void changeDino()
+    {
+        player = GameObject.FindWithTag("Dino").transform;
+    }
+
     // Update is called once per frame
     public void Update()
     {
+        if (!player){
+            changeDino();
+        }
         
     //Mouse Input
         if (!isDraging && Input.GetMouseButton(0)){

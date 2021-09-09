@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 59291350}
-  m_IndirectSpecularColor: {r: 0.43692073, g: 0.4290514, b: 0.41679227, a: 1}
+  m_IndirectSpecularColor: {r: 0.4369208, g: 0.4290517, b: 0.41679266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -839,13 +839,17 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 537855729}
+    - target: {fileID: 2049898885, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1629761136265782659, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
       propertyPath: m_Name
       value: Iguanodon
       objectReference: {fileID: 0}
     - target: {fileID: 1629761136265820643, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1629761136265820643, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -887,7 +891,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2049898885, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
 --- !u!4 &165276929 stripped
 Transform:
@@ -1044,9 +1049,13 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1606534430}
+    - target: {fileID: 537855731, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1092,7 +1101,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pachycephalosaurus
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 537855731, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
 --- !u!4 &256861000 stripped
 Transform:
@@ -2256,6 +2266,59 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8965524159740157561, guid: b49b6e0488d123848a9c1edde2353163, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b49b6e0488d123848a9c1edde2353163, type: 3}
+--- !u!1 &599410310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599410312}
+  - component: {fileID: 599410311}
+  m_Layer: 0
+  m_Name: Swipe Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &599410311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599410310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeLeft: 0
+  swipeRight: 0
+  startTouch: {x: 0, y: 0}
+  deltaTouch: {x: 0, y: 0}
+  isDraging: 0
+  isRight: 0
+  isLeft: 0
+  isMiddle: 0
+  player: {fileID: 0}
+  newPos: {x: 0, y: 0, z: 0}
+--- !u!4 &599410312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599410310}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.6, y: 39.5, z: 265.8}
+  m_LocalScale: {x: 62.385586, y: 62.38555, z: 62.38555}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &611410630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8965524159740157446, guid: b49b6e0488d123848a9c1edde2353163, type: 3}
@@ -2283,7 +2346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279504115564029068, guid: 036d4cc4ebe7399429ca97d2d408003f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1279504115564029068, guid: 036d4cc4ebe7399429ca97d2d408003f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2493,9 +2556,13 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1408967908}
+    - target: {fileID: 1606534432, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 160099775629819288, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 160099775629819288, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2545,7 +2612,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1606534432, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
 --- !u!4 &890164817 stripped
 Transform:
@@ -2704,7 +2772,7 @@ Transform:
   - {fileID: 1482873865}
   - {fileID: 165276929}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &896876167 stripped
 Transform:
@@ -3065,13 +3133,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 628343057, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1704046029756010, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
       propertyPath: m_Name
       value: Velociraptor
       objectReference: {fileID: 0}
     - target: {fileID: 4701222891335540, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4701222891335540, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3113,7 +3185,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 628343057, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
 --- !u!1001 &1019191976
 PrefabInstance:
@@ -4423,13 +4496,17 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1369284240}
+    - target: {fileID: 1408967910, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1080700290406170, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
       propertyPath: m_Name
       value: Stegosaurus_Red
       objectReference: {fileID: 0}
     - target: {fileID: 4846570793918966, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4846570793918966, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4471,7 +4548,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1408967910, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
 --- !u!1001 &1436121461
 PrefabInstance:
@@ -5174,7 +5252,7 @@ Transform:
   m_LocalScale: {x: 62.385586, y: 62.38555, z: 62.38555}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595911818
 GameObject:
@@ -6642,7 +6720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544073354655166, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4544073354655166, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
       propertyPath: m_LocalScale.y
@@ -6744,33 +6822,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1582867359527748, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
   m_PrefabInstance: {fileID: 2005425967}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2005425969 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4544073354655166, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
-  m_PrefabInstance: {fileID: 2005425967}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2005425970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005425968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeLeft: 1
-  swipeRight: 1
-  startTouch: {x: 0, y: 0}
-  deltaTouch: {x: 0, y: 0}
-  isDraging: 0
-  isRight: 0
-  isLeft: 0
-  isMiddle: 0
-  player: {fileID: 2005425969}
-  newPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2005425971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7137,13 +7188,17 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 628343055}
+    - target: {fileID: 1369284242, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1352937588825246, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
       propertyPath: m_Name
       value: Triceratops
       objectReference: {fileID: 0}
     - target: {fileID: 4894963829872626, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4894963829872626, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7185,7 +7240,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1369284242, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
 --- !u!1 &2080647474
 GameObject:
@@ -7459,6 +7515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2145052675, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2145052676, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
       propertyPath: Trex
       value: 
@@ -7469,7 +7529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074189310207666, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4074189310207666, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7511,7 +7571,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2145052675, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
 --- !u!1 &2145052672 stripped
 GameObject:
