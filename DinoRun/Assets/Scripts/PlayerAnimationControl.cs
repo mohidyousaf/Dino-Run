@@ -6,6 +6,7 @@ namespace PolyPerfect
     public class PlayerAnimationControl : MonoBehaviour
     {
         public GameObject Trex;
+        public GameObject SmokePrefab;
         public Animator anim;
         // Start is called before the first frame update
         public bool GameEnded = false;
@@ -60,6 +61,12 @@ namespace PolyPerfect
                
 
                 GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
+                GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
+                smoke.SetActive(true);
+                smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity);
+                smoke.SetActive(true);
+                smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
+                smoke.SetActive(true);
                 //gameObject.SetActive(false);
                 myTrex.SetActive(true);
                 // anim.SetBool("isAttacking", false);
