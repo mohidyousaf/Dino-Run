@@ -17,6 +17,10 @@ namespace PolyPerfect
         private int eggCount=0;
         void OnTriggerEnter(Collider target)
         {
+            if (target.gameObject.CompareTag("terrain"))
+            {
+                Debug.Log("terrain collision");
+            }
             if (target.gameObject.CompareTag("Egg"))
             {
                 Destroy(target.gameObject);
@@ -35,6 +39,14 @@ namespace PolyPerfect
                 
             }
         }
+
+        void OnCollisionEnter(Collision col)
+        {
+            if (col.gameObject.CompareTag("terrain"))
+            {
+                Debug.Log("collided at the difference");// + transform.position.x-col.gameObject.transform.position.x
+            }
+        }
         //public Common_PlaySound soundPlayer;
         void Start()
         {
@@ -50,7 +62,7 @@ namespace PolyPerfect
         void Update()
         {
             anim = GetComponent<Animator>();
-            Debug.Log("evolve count is"+ evolveCount);
+            //Debug.Log("evolve count is"+ evolveCount);
             if (NextState)
             {
                 Debug.Log("evolve count is"+ evolveCount);
