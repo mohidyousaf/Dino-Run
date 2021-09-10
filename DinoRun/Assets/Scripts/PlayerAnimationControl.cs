@@ -23,16 +23,20 @@ namespace PolyPerfect
 
                 // increasing egg count by 1
                 eggCount++;
-                Debug.Log("egg count is " + eggCount);
+                // Debug.Log("egg count is " + eggCount);
 
                 //if egg count is multiple of 2 , evolve
 
                 if(eggCount % 2 ==0){
-                     Debug.Log("changing transition as egg count is multiple of 2");
+                    // Debug.Log("changing transition as egg count is multiple of 2");
                     NextState = true;
                 }
                    
                 
+            }
+            if (target.gameObject.CompareTag("terrain"))
+            {
+                Debug.Log("here we have a terrain!");
             }
         }
         //public Common_PlaySound soundPlayer;
@@ -42,7 +46,7 @@ namespace PolyPerfect
             // anim = GetComponent<Animator>();
             if (anim != null)
             {
-                Debug.Log("Animator is not null");
+                // Debug.Log("Animator is not null");
             }
         }
 
@@ -50,10 +54,10 @@ namespace PolyPerfect
         void Update()
         {
             anim = GetComponent<Animator>();
-            Debug.Log("evolve count is"+ evolveCount);
+           
             if (NextState)
             {
-                Debug.Log("evolve count is"+ evolveCount);
+               
 
                 GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
                 //gameObject.SetActive(false);
@@ -74,7 +78,7 @@ namespace PolyPerfect
             else if (GameEnded)
             {
 
-                Debug.Log("Entered if statement");
+                // Debug.Log("Entered if statement");
                 anim.SetBool("isRunning", false);
 
                 anim.SetBool("isAttacking", true);
@@ -84,7 +88,7 @@ namespace PolyPerfect
         }
         IEnumerator waitingOF(float seconds)
         {
-            Debug.Log("waiting()");
+            // Debug.Log("waiting()");
             yield return (new WaitForSeconds(seconds));
         }
 

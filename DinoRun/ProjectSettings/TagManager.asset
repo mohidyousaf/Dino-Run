@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Egg
   - Dino
+  - terrain
   layers:
   - Default
   - TransparentFX
