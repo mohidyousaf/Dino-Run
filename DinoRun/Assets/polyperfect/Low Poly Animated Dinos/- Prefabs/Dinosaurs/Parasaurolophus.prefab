@@ -2241,9 +2241,11 @@ GameObject:
   - component: {fileID: 160099775998688294}
   - component: {fileID: 160099775998688292}
   - component: {fileID: 160099775998688293}
+  - component: {fileID: 1606534431}
+  - component: {fileID: 1606534432}
   m_Layer: 0
   m_Name: Parasaurolophus
-  m_TagString: Untagged
+  m_TagString: Dino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2255,9 +2257,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160099775630238136}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: -0.0000001872535}
   m_LocalPosition: {x: 30, y: 0, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6856, y: 1.6856, z: 1.6856}
   m_Children:
   - {fileID: 160099775629819356}
   - {fileID: 160099775629819342}
@@ -2330,7 +2332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160099775630238136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01897ae0afb46794d88a3dc2d9386348, type: 3}
   m_Name: 
@@ -2383,6 +2385,45 @@ MonoBehaviour:
   movementEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1606534431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160099775630238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163411acd8f1f0f49967dac75dc6a23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trex: {fileID: 0}
+  anim: {fileID: 0}
+  GameEnded: 0
+  Eating: 0
+  attack: 0
+--- !u!114 &1606534432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160099775630238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeLeft: 0
+  swipeRight: 0
+  startTouch: {x: 0, y: 0}
+  deltaTouch: {x: 0, y: 0}
+  isDraging: 0
+  isRight: 0
+  isLeft: 0
+  isMiddle: 0
+  player: {fileID: 0}
+  newPos: {x: 0, y: 0, z: 0}
 --- !u!1 &160099775630238138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2469,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2439,6 +2482,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
