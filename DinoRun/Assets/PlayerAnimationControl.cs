@@ -6,6 +6,7 @@ namespace PolyPerfect
     public class PlayerAnimationControl : MonoBehaviour
     {
         public GameObject Trex;
+        public GameObject Smoke;
         public Animator anim;
         // Start is called before the first frame update
         public bool GameEnded = false;
@@ -31,16 +32,48 @@ namespace PolyPerfect
         }
 
         // Update is called once per frame
+        IEnumerator waitsForTime(float seconds)
+        {
+            Destroy(gameObject);
+            Debug.Log("waiting function()");
+            GameObject mySmoke = (GameObject)Instantiate(Smoke, transform.position, Quaternion.identity);
+            mySmoke.SetActive(true);
+             mySmoke = (GameObject)Instantiate(Smoke, transform.position, Quaternion.identity);
+             mySmoke.transform.position = new Vector3(mySmoke.transform.position.x, mySmoke.transform.position.y + 2.5f, mySmoke.transform.position.z);
+
+            mySmoke.SetActive(true);
+             mySmoke = (GameObject)Instantiate(Smoke, transform.position, Quaternion.identity);
+             mySmoke.transform.position= new Vector3(mySmoke.transform.position.x, mySmoke.transform.position.y + 5.9f, mySmoke.transform.position.z);
+            mySmoke.SetActive(true);
+            mySmoke.transform.rotation = gameObject.transform.rotation;
+
+
+            GameObject myTrex = (GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
+            //gameObject.SetActive(false);
+            myTrex.SetActive(true);
+            myTrex.transform.rotation = gameObject.transform.rotation;
+            
+            yield return new WaitForSeconds(seconds);
+
+            //Destroy(mySmoke.gameObject);
+            
+
+           
+            Debug.Log("Yamaha Motorcycle");
+        }
         void Update()
         {
             if (NextState)
             {
-                GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
-                //gameObject.SetActive(false);
-                myTrex.SetActive(true);
-                myTrex.transform.rotation=  gameObject.transform.rotation;
                 
-                Destroy(gameObject);
+
+                
+               
+
+
+                StartCoroutine(waitsForTime(2.5f));
+                
+                NextState = false;
             }
 
             if (!GameEnded && !Eating)

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EatEgg : MonoBehaviour
 {
 
-
     private void OnTriggerEnter(Collider collision)
     {
        
