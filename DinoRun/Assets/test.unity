@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 59291350}
-  m_IndirectSpecularColor: {r: 0.4369208, g: 0.4290517, b: 0.41679266, a: 1}
+  m_IndirectSpecularColor: {r: 0.43692073, g: 0.4290514, b: 0.41679227, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -839,6 +839,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 537855729}
+    - target: {fileID: 2049898884, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 2049898885, guid: 2c283dffb4e1c0446b48244586172f58, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1049,6 +1053,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1606534430}
+    - target: {fileID: 537855730, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 537855731, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2556,6 +2564,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1408967908}
+    - target: {fileID: 1606534431, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 1606534432, guid: 3cb04a867d039064db3838302c2e3738, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3133,6 +3145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 628343056, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 628343057, guid: 66c4d78bbe13d4777bd10575c3a8c680, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4496,6 +4512,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 1369284240}
+    - target: {fileID: 1408967909, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 1408967910, guid: 83cf425b3d2f30b4d965aebc7fa28cb0, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6736,7 +6756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544073354655166, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.41
+      value: -2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4544073354655166, guid: 38bc7d0933a2a474fad8461a0fe49f23, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6835,6 +6855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trex: {fileID: 2145052672}
+  SmokePrefab: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
   anim: {fileID: 0}
   GameEnded: 0
   Eating: 0
@@ -7188,6 +7209,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 628343055}
+    - target: {fileID: 1369284241, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 1369284242, guid: e8fd2075778deb942b1a2986dcce525e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7523,6 +7548,10 @@ PrefabInstance:
       propertyPath: Trex
       value: 
       objectReference: {fileID: 2049898883}
+    - target: {fileID: 2145052676, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
+      propertyPath: SmokePrefab
+      value: 
+      objectReference: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
     - target: {fileID: 1962935449849492, guid: 9268f0d0e9612eb4999ba69d748ad274, type: 3}
       propertyPath: m_Name
       value: T-Rex
