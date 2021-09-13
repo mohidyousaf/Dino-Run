@@ -51,6 +51,10 @@ namespace PolyPerfect
             {
                 Debug.Log("collided at the difference");// + transform.position.x-col.gameObject.transform.position.x
             }
+            if (col.gameObject.CompareTag("boundary"))
+            {
+                Debug.Log("collided with boundary");
+            }
         }
         //public Common_PlaySound soundPlayer;
         void Start()
