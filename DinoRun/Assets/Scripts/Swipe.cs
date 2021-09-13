@@ -53,12 +53,12 @@ public class Swipe : MonoBehaviour
             isDraging= false;
             deltaTouch = Vector2.zero;
             //isDraging= 'c';
-            deltaTouch = (Vector2)Input.mousePosition - startTouch;
-            Debug.Log("mouse: "+ Input.mousePosition.x + ", " +  Input.mousePosition.y);
-            Debug.Log("starttouch: "+ startTouch[0] + ", " + startTouch[1]);
-            Debug.Log("deltatouch: "+ deltaTouch[0] + ", " +  deltaTouch[1]);
+            //deltaTouch = (Vector2)Input.mousePosition - startTouch;
+            //Debug.Log("mouse: "+ Input.mousePosition.x + ", " +  Input.mousePosition.y);
+            //Debug.Log("starttouch: "+ startTouch[0] + ", " + startTouch[1]);
+            //Debug.Log("deltatouch: "+ deltaTouch[0] + ", " +  deltaTouch[1]);
 
-            Debug.Log("The magnitude is "+ deltaTouch.magnitude);
+            //Debug.Log("The magnitude is "+ deltaTouch.magnitude);
             
             if(deltaTouch.magnitude > 35){
 
