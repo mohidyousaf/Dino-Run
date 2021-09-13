@@ -13,7 +13,7 @@ public class Swipe : MonoBehaviour
     //changes
     public Transform player;
 
-    private float change = 7, xNew;
+    private float change = 4, xNew;
     
     public Vector3 newPos;
 
@@ -53,7 +53,7 @@ public class Swipe : MonoBehaviour
             isDraging= false;
             deltaTouch = Vector2.zero;
             //isDraging= 'c';
-            //deltaTouch = (Vector2)Input.mousePosition - startTouch;
+            deltaTouch = (Vector2)Input.mousePosition - startTouch;
             //Debug.Log("mouse: "+ Input.mousePosition.x + ", " +  Input.mousePosition.y);
             //Debug.Log("starttouch: "+ startTouch[0] + ", " + startTouch[1]);
             //Debug.Log("deltatouch: "+ deltaTouch[0] + ", " +  deltaTouch[1]);
@@ -92,7 +92,9 @@ public class Swipe : MonoBehaviour
                     }
                 }
             }  
+            
             newPos = new Vector3(xNew, player.position.y, player.position.z);
+            // player.position = Vector3.MoveTowards(player.position,newPos,Time.deltaTime * 10);
             player.position = newPos;
             //Rigidbody m_Rigidbody = player.GetComponent<Rigidbody>();
             //m_Rigidbody.MovePosition(newPos * Time.deltaTime * 2);
