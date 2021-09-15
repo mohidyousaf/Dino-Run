@@ -4,70 +4,62 @@ using UnityEngine;
 
 public class Swipe : MonoBehaviour
 {
-
-    public bool swipeLeft, swipeRight;
     public Vector2 startTouch, deltaTouch;
-    public bool isDraging, isRight, isLeft, isMiddle;
-    //public char isDraging;
+    public bool isDragging, isRight, isLeft, isMiddle;
+    public float change = 4; //change at each swipe
+    public float deltaTouchMargin = 35; //the delta touch magnitude at which player moves
 
-    //changes
     public Transform player;
-
-    private float change = 4, xNew;
     
-    public Vector3 newPos;
 
-
-    public void Start(){
-        //isDraging = 'a';
-        player = GameObject.FindWithTag("Dino").transform;
+    public void Start()
+    {
+        changeDino();
+        
         isMiddle = true;
-        isDraging = false;
-        swipeLeft = swipeRight = false;
-        startTouch = deltaTouch = Vector2.zero;
         isRight = isLeft = false;
-        //a = start; b= mouse dragging; c = mouse down
+        
+        isDragging = false;
+        startTouch = deltaTouch = Vector2.zero;
+        
     }
 
+    //function to find the current dinosaur
     void changeDino()
     {
         player = GameObject.FindWithTag("Dino").transform;
     }
 
-    // Update is called once per frame
+   
     public void Update()
     {
+        //updating dinosaur if dinosaur changed
         if (!player){
             changeDino();
         }
         
-    //Mouse Input
-        if (!isDraging && Input.GetMouseButton(0)){
+        //Mouse Input
+        if (!isDragging && Input.GetMouseButton(0))
+        {
             startTouch = Input.mousePosition;
-            isDraging= true;
-            //Debug.Log("tapped");
-
+            isDragging= true;
         }
 
-        else if (isDraging && Input.GetMouseButtonUp(0)){
-            isDraging= false;
-            deltaTouch = Vector2.zero;
-            //isDraging= 'c';
-            deltaTouch = (Vector2)Input.mousePosition - startTouch;
-            //Debug.Log("mouse: "+ Input.mousePosition.x + ", " +  Input.mousePosition.y);
-            //Debug.Log("starttouch: "+ startTouch[0] + ", " + startTouch[1]);
-            //Debug.Log("deltatouch: "+ deltaTouch[0] + ", " +  deltaTouch[1]);
-
-            //Debug.Log("The magnitude is "+ deltaTouch.magnitude);
+        else if (isDragging && Input.GetMouseButtonUp(0))
+        {
+            isDragging= false;
             
-            if(deltaTouch.magnitude > 35){
+            deltaTouch = (Vector2)Input.mousePosition - startTouch;
+            
+            if(deltaTouch.magnitude > deltaTouchMargin)
+            {
 
                 float x = deltaTouch.x;
             
-                if(x<0 && !isLeft){
-                    //swipeLeft = true;
-                    //isLeft = true;
-                    xNew = player.position.x - change;
+                if(x<0 && !isLeft)
+                {
+                    player.position = new Vector3(player.position.x - change, player.position.y, player.position.z);
+                    
                     if (isMiddle){
                         isMiddle = false;
                         isLeft = true;
@@ -78,10 +70,10 @@ public class Swipe : MonoBehaviour
                     }
                 }
 
-                else if (x>0 && !isRight){
-                    //swipeRight=true;
-                    xNew = player.position.x + change;
-                    //isRight = true;
+                else if (x>0 && !isRight)
+                {
+                    player.position = new Vector3(player.position.x + change, player.position.y, player.position.z);
+                   
                     if (isMiddle){
                         isMiddle = false;
                         isRight = true;
@@ -91,17 +83,13 @@ public class Swipe : MonoBehaviour
                         isMiddle = true;
                     }
                 }
+                
             }  
             
-            newPos = new Vector3(xNew, player.position.y, player.position.z);
+            
             // player.position = Vector3.MoveTowards(player.position,newPos,Time.deltaTime * 10);
-            player.position = newPos;
-            //Rigidbody m_Rigidbody = player.GetComponent<Rigidbody>();
-            //m_Rigidbody.MovePosition(newPos * Time.deltaTime * 2);
-            //player.position = Vector3.MoveTowards(player.position, newPos, Time.deltaTime);
-            //Debug.Log("The magnitude is "+ deltaTouch.magnitude);
+            
             reset();
-            //startTouch = deltaTouch = Vector2.zero;
         }
  
     //Mobile Input
@@ -109,11 +97,11 @@ public class Swipe : MonoBehaviour
         if (Input.touches.Length > 0){  
             if(Input.touches[0].phase == TouchPhase.Began){
                 startTouch = Input.touches[0].position;
-                //isDraging= true;
+                //isDragging= true;
             }
 
             else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled){
-                //isDraging= false;
+                //isDragging= false;
                 reset();
             }
         }
@@ -121,8 +109,8 @@ public class Swipe : MonoBehaviour
     //Direction
     /*
         deltaTouch = Vector2.zero;
-        if (!isDraging){
-        //if (isDraging != 'b'){    
+        if (!isDragging){
+        //if (isDragging != 'b'){    
             // Debug.Log("Still dragging");
             //Debug.Log("Input.touches.Length: " + Input.touches.Length);
             //Debug.Log("Input touches"+ Input.touches);
@@ -149,16 +137,11 @@ public class Swipe : MonoBehaviour
         
     }
 
-    public void reset(){
+    public void reset()
+    {
         startTouch = deltaTouch = Vector2.zero;
-        isDraging= false;
-        //swipeLeft = swipeRight = false;
-        //isDraging= 'c';
-
+        isDragging= false;
     }
-
-
-
 
 
 }
