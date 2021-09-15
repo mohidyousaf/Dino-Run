@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44669807, g: 0.4965511, b: 0.5748898, a: 1}
+  m_IndirectSpecularColor: {r: 0.446698, g: 0.4965514, b: 0.5748902, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -336,6 +336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2005425970, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629954041674045378, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -384,7 +388,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brachiosaurus Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2005425970, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
 --- !u!1 &952429139 stripped
 GameObject:
@@ -743,6 +748,59 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2763428507172105565, guid: b11cbdf6dfe14d24aa49a21e124b1d60, type: 3}
   m_PrefabInstance: {fileID: 1217425373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393908688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393908690}
+  - component: {fileID: 1393908689}
+  m_Layer: 0
+  m_Name: Swipe Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1393908689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393908688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeLeft: 0
+  swipeRight: 0
+  startTouch: {x: 0, y: 0}
+  deltaTouch: {x: 0, y: 0}
+  isDraging: 0
+  isRight: 0
+  isLeft: 0
+  isMiddle: 0
+  player: {fileID: 0}
+  newPos: {x: 0, y: 0, z: 0}
+--- !u!4 &1393908690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393908688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.555101, y: 131.38654, z: -366.8524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422382612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2765115458656832320, guid: b11cbdf6dfe14d24aa49a21e124b1d60, type: 3}
