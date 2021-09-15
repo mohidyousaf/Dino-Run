@@ -96,8 +96,8 @@ namespace PolyPerfect
                 anim.SetBool("isAttacking", false);
                 anim.SetBool("isRunning", true);
                 //soundPlayer.AnimalSound();
-                float speed = 5;
-                transform.Translate(Vector3.forward * 5 * Time.deltaTime);
+                
+                transform.Translate(Vector3.forward * 12 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
                 //m_Rigidbody.AddForce(transform.position + Vector3.forward, )

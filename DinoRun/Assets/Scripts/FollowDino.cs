@@ -22,8 +22,14 @@ public class FollowDino : MonoBehaviour
         if (!currentDino){
             changeDino();
         }
-        transform.position = currentDino.position + new Vector3(0,12,-12);
         
+
+        
+        transform.position = currentDino.position + new Vector3(0,12,-0);
+        transform.rotation = currentDino.rotation ;
+
+        
+        Debug.Log("the rotation is "+ transform.rotation);
     }
 
     void changeDino()
