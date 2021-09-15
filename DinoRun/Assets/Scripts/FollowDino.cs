@@ -25,8 +25,9 @@ public class FollowDino : MonoBehaviour
         
 
         
-        transform.position = currentDino.position + new Vector3(0,12,-0);
+        transform.position = currentDino.position + new Vector3(0,12,0);
         transform.rotation = currentDino.rotation ;
+        transform.rotation *= Quaternion.Euler(new Vector3(15, 0,0));
 
         
         Debug.Log("the rotation is "+ transform.rotation);
