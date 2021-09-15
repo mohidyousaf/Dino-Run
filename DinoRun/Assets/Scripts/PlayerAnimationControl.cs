@@ -87,7 +87,7 @@ namespace PolyPerfect
                 myTrex.SetActive(true);
                 // anim.SetBool("isAttacking", false);
                 // anim.SetBool("isRunning", true);
-                myTrex.transform.rotation = gameObject.transform.rotation;
+                // myTrex.transform.rotation = gameObject.transform.rotation;
                 Destroy(gameObject);
             }
 
@@ -97,7 +97,7 @@ namespace PolyPerfect
                 anim.SetBool("isRunning", true);
                 //soundPlayer.AnimalSound();
                 
-                transform.Translate(Vector3.forward * 12 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 10 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
                 //m_Rigidbody.AddForce(transform.position + Vector3.forward, )

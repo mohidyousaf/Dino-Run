@@ -39,13 +39,13 @@ public class WayPointController : MonoBehaviour
             {
                 //Debug.Log("WayPoint Arrived");
                 //transform.Rotate()
-                //currentDino.rotation = waypoints[wayPointIndex].transform.rotation;
+                // currentDino.rotation = waypoints[wayPointIndex].transform.rotation;
                 //Debug.Log("came here");
                 //Vector3 rot = waypoints[wayPointIndex].transform.rotation ; 
                 //Vector3 dinoRot = currentDino.rotation;
                 float speed = 10;
                 //currentDino.rotation = Quaternion.RotateTowards ( currentDino.rotation , waypoints[wayPointIndex].transform.rotation , Time.deltaTime*speed);
-                currentDino.rotation = Quaternion.Slerp (currentDino.rotation, waypoints[wayPointIndex].transform.rotation , Time.deltaTime * 10);
+                currentDino.rotation = Quaternion.Slerp (currentDino.rotation, waypoints[wayPointIndex].transform.rotation , Time.deltaTime * 40);
                 Debug.Log("index is "+ wayPointIndex);
                 wayPointIndex += 1;
                         // Determine which direction to rotate towards
@@ -75,7 +75,7 @@ public class WayPointController : MonoBehaviour
 
     private bool checkInWaypoint()
     {
-        int dis = 9;
+        int dis = 10;
         //Transform currentWaypoint = waypoints[wayPointIndex];
         //if ( ( currentWaypoint - currentDino.position ).sqrMagnitude < presetDistance * presetDistance ) // sqrMagnitude, magnitude, Vector3.Distance, whatever your choice is
         //Debug.Log(Vector3.Distance(waypoints[wayPointIndex].transform.position, currentDino.position));
