@@ -5,8 +5,7 @@ using UnityEngine;
 public class Swipe : MonoBehaviour
 {
     public Vector2 startTouch, deltaTouch;
-    public bool isDragging, isRight, isLeft, isMiddle;
-    public float change = 4; //change at each swipe
+    public bool isDragging, isRight, isLeft, isMiddle, movingVertical, movingHorizontal;
     public float deltaTouchMargin = 35; //the delta touch magnitude at which player moves
 
     public Transform player;
@@ -21,6 +20,8 @@ public class Swipe : MonoBehaviour
         
         isDragging = false;
         startTouch = deltaTouch = Vector2.zero;
+
+        movingVertical = true;
         
     }
 
@@ -55,10 +56,11 @@ public class Swipe : MonoBehaviour
             {
 
                 float x = deltaTouch.x;
+                Vector3 temp = transform.right * 3;
             
                 if(x<0 && !isLeft)
                 {
-                    player.position = new Vector3(player.position.x - change, player.position.y, player.position.z);
+                    player.position -= temp;
                     
                     if (isMiddle){
                         isMiddle = false;
@@ -72,7 +74,7 @@ public class Swipe : MonoBehaviour
 
                 else if (x>0 && !isRight)
                 {
-                    player.position = new Vector3(player.position.x + change, player.position.y, player.position.z);
+                    player.position += temp;
                    
                     if (isMiddle){
                         isMiddle = false;
@@ -143,6 +145,18 @@ public class Swipe : MonoBehaviour
         isDragging= false;
     }
 
+    public void changeDir()
+    {
+        if (movingVertical)
+        {
+            movingVertical = false;
+        }
+        else
+        {
+            movingVertical = true;
+        }
+
+    }
 
 }
 

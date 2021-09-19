@@ -16,6 +16,7 @@ namespace PolyPerfect
         bool NextState = false;
         private int evolveCount=0;
         private int eggCount=0;
+
         void OnTriggerEnter(Collider target)
         {
             if (target.gameObject.CompareTag("terrain"))

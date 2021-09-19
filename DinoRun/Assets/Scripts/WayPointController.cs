@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class WayPointController : MonoBehaviour
 {
     public Transform currentDino;
-    //private List<Transform> waypoints;
-    public GameObject[] waypoints;
-    private int wayPointIndex;
+    public Swipe dinoS;
+    public Transform camera;
 
-    void onEnable()
-    {
-        //waypoints = GetComponentsInChildren<Transform>().ToList();
-        //waypoints.RemoveAt(0);
-        wayPointIndex = 0;
-        
-        //currentDino = GameObject.FindWithTag("Dino").transform;
-    }
+    public float dis = 20;
+
+
+    public bool isPassed;
+
+    float xdis, zdis;
 
     void Start()
     {
-        //Debug.Log("No. of objects are:", waypoints.Count);
         currentDino = GameObject.FindWithTag("Dino").transform;
-        
+        zdis = 100;
+        xdis = 100;
+        isPassed = false;
+    
     }
 
     // Update is called once per frame
@@ -33,62 +33,66 @@ public class WayPointController : MonoBehaviour
             currentDino = GameObject.FindWithTag("Dino").transform;
         }
         
-        if (wayPointIndex <= waypoints.Length-1)
+        if (!isPassed)
         {
             if (checkInWaypoint())
             {
-                //Debug.Log("WayPoint Arrived");
-                //transform.Rotate()
-                // currentDino.rotation = waypoints[wayPointIndex].transform.rotation;
-                //Debug.Log("came here");
-                //Vector3 rot = waypoints[wayPointIndex].transform.rotation ; 
-                //Vector3 dinoRot = currentDino.rotation;
-                float speed = 10;
-                //currentDino.rotation = Quaternion.RotateTowards ( currentDino.rotation , waypoints[wayPointIndex].transform.rotation , Time.deltaTime*speed);
-                currentDino.rotation = Quaternion.Slerp (currentDino.rotation, waypoints[wayPointIndex].transform.rotation , Time.deltaTime * 40);
-                Debug.Log("index is "+ wayPointIndex);
-                wayPointIndex += 1;
-                        // Determine which direction to rotate towards
-        /*
-        Vector3 targetDirection = waypoints[wayPointIndex].transform.position - currentDino.position;
 
-        // The step size is equal to speed times frame time.
-        float singleStep = 10 * Time.deltaTime;
+                float speed = 40;
 
-        // Rotate the forward vector towards the target direction by one step
-        Vector3 newDirection = Vector3.RotateTowards(currentDino.forward, targetDirection, singleStep, 0.0f);
+                currentDino.rotation = Quaternion.Lerp (currentDino.rotation, transform.rotation, Time.time * speed);
+                camera.rotation = Quaternion.Lerp (camera.rotation, transform.rotation, Time.time * speed);
 
-        // Draw a ray pointing at our target in
-        Debug.DrawRay(currentDino.position, newDirection, Color.red);
 
-        // Calculate a rotation a step closer to the target and applies rotation to this object
-        currentDino.rotation = Quaternion.LookRotation(newDirection);*/
+                isPassed = true;
 
+                dinoS.changeDir();
+
+                reset_dis();
 
             }
         }
-        else 
-        {
-            reset();
-        }
     }
+
 
     private bool checkInWaypoint()
     {
-        int dis = 10;
-        //Transform currentWaypoint = waypoints[wayPointIndex];
-        //if ( ( currentWaypoint - currentDino.position ).sqrMagnitude < presetDistance * presetDistance ) // sqrMagnitude, magnitude, Vector3.Distance, whatever your choice is
-        //Debug.Log(Vector3.Distance(waypoints[wayPointIndex].transform.position, currentDino.position));
-        if (Vector3.Distance(waypoints[wayPointIndex].transform.position, currentDino.position) <= dis) //insert norm formula here
+
+        float zdis = Math.Abs(transform.position.z - currentDino.position.z);
+        float xdis = Math.Abs(transform.position.x - currentDino.position.x);
+        
+        if (Vector3.Distance(transform.position, currentDino.position) <= dis)
         {
-            return true;
+            if (dinoS.movingVertical)
+            {
+                Debug.Log("inside vertical");
+                if ( (dinoS.isRight &&  zdis <= 20) || 
+                (dinoS.isMiddle && zdis <= 9) ||
+                (dinoS.isLeft && zdis <= 2))
+                {
+                    return true;
+                }
+            }
+            
+            else{
+                Debug.Log("inside horizontal");
+                if ((dinoS.isRight && xdis <= 4) || 
+                (dinoS.isMiddle && xdis <= 12) ||
+                (dinoS.isLeft && xdis <= 19))
+                {
+                    Debug.Log("xdis:" + xdis);
+                    return true;
+                }
+            }
         }
         return false;
     }
 
-    private void reset()
+
+    void reset_dis()
     {
-        wayPointIndex = 0;
+        zdis = 100;
+        xdis = 100;
     }
 
     void changeDino()
@@ -96,5 +100,24 @@ public class WayPointController : MonoBehaviour
         currentDino = GameObject.FindWithTag("Dino").transform;
     }
 
-    // Update is called once per frame
 }
+
+/* Reference Points for Level 1:
+
+Path width: around 24
+
+Reference Points for turning and keeping lanes same:
+
+1. Going from  Vertical to Horizontal:
+
+wp: "position":{"x":-42.20000076293945,"y":0.0,"z":9.899999618530274}
+right: "position":{"x":-39.099998474121097,"y":0.0,"z":-10.800000190734864}
+middle: "position":{"x":-39.099998474121097,"y":0.0,"z":-0.30000001192092898}
+left: "position":{"x":-39.099998474121097,"y":0.0,"z":7.599999904632568}
+
+1. Going from  Horizontal to Vertical:
+wp: "position":{"x":201.60000610351563,"y":0.0,"z":-1.600000023841858}
+right: "position":{"x":197.0,"y":-0.012160777114331723,"z":0.20000000298023225}
+middle: "position":{"x":189.60000610351563,"y":-0.012160777114331723,"z":0.4000000059604645}
+left: "position":{"x":182.39999389648438,"y":-3.799999952316284,"z":0.30000001192092898}
+*/

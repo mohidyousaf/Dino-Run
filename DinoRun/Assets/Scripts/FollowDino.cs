@@ -38,26 +38,34 @@ public class FollowDino : MonoBehaviour
  
             return;
          }
- 
+
+        Vector3  tempPosition; 
+
          // compute position
          if(offsetPositionSpace == Space.Self)
          {
-             transform.position = currentDino.TransformPoint(new Vector3 (0,30,-40));
+            tempPosition = currentDino.TransformPoint(new Vector3 (0,30,-40));
          }
          else
          {
-             transform.position = currentDino.position +  new Vector3 (0,30,-40);
+            tempPosition = currentDino.position +  new Vector3 (0,30,-40);
          }
+
+         tempPosition.y = transform.position.y;
+
+         transform.position = tempPosition;
  
          // compute rotation
+         /*
+
          if(lookAt)
          {
              transform.LookAt(currentDino);
          }
          else
          {
-             transform.rotation = currentDino.rotation;
-         }
+            //transform.rotation = currentDino.rotation;
+         }*/
      }
 
     // Update is called once per frame
