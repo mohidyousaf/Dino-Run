@@ -5,14 +5,10 @@ using UnityEngine;
 public class FollowDino : MonoBehaviour
 {
     public Transform currentDino;
-   
 
-    //public GameObject dino;
-    // Start is called before the first frame update
     void Start()
     {
         currentDino = GameObject.FindWithTag("Dino").transform;
-        //Debug.Log(dino.transform.position);
         
     }
     [SerializeField]
@@ -54,36 +50,8 @@ public class FollowDino : MonoBehaviour
          tempPosition.y = transform.position.y;
 
          transform.position = tempPosition;
- 
-         // compute rotation
-         /*
 
-         if(lookAt)
-         {
-             transform.LookAt(currentDino);
-         }
-         else
-         {
-            //transform.rotation = currentDino.rotation;
-         }*/
      }
-
-    // Update is called once per frame
-    // void LateUpdate()
-    // {
-    //     if (!currentDino){
-    //         changeDino();
-    //     }
-        
-
-        
-    //     transform.position = currentDino.position + new Vector3(0,12,0);
-    //     transform.rotation = currentDino.rotation ;
-    //     transform.rotation *= Quaternion.Euler(new Vector3(15, 0,0));
-
-        
-    //     Debug.Log("the rotation is "+ transform.rotation);
-    // }
 
     void changeDino()
     {
