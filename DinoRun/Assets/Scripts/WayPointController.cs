@@ -66,9 +66,9 @@ public class WayPointController : MonoBehaviour
             if (dinoS.movingVertical)
             {
                 Debug.Log("inside vertical");
-                if ( (dinoS.isRight &&  zdis <= 20) || 
-                (dinoS.isMiddle && zdis <= 9) ||
-                (dinoS.isLeft && zdis <= 2))
+                if ( (dinoS.isRight &&  zdis <= 19) || 
+                (dinoS.isMiddle && zdis <= 10) ||
+                (dinoS.isLeft && zdis <= 5))
                 {
                     return true;
                 }
@@ -109,7 +109,6 @@ Path width: around 24
 Reference Points for turning and keeping lanes same:
 
 1. Going from  Vertical to Horizontal:
-
 wp: "position":{"x":-42.20000076293945,"y":0.0,"z":9.899999618530274}
 right: "position":{"x":-39.099998474121097,"y":0.0,"z":-10.800000190734864}
 middle: "position":{"x":-39.099998474121097,"y":0.0,"z":-0.30000001192092898}
