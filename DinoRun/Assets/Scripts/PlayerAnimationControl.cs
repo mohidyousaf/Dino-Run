@@ -5,7 +5,7 @@ namespace PolyPerfect
 {
     public class PlayerAnimationControl : MonoBehaviour
     {
-        public GameObject Trex;
+        //public GameObject Trex;
         public GameObject SmokePrefab;
         public Animator anim;
         // Start is called before the first frame update
@@ -16,9 +16,15 @@ namespace PolyPerfect
         bool NextState = false;
         private int evolveCount=0;
         private int eggCount=0;
+        public egg eggCollided;
+        public bool instantiated;
+        public float lastInstPosX = 0;
+        public float lastInstPosZ = 0;
+
 
         void OnTriggerEnter(Collider target)
         {
+            
             if (target.gameObject.CompareTag("terrain"))
             {
                 Debug.Log("terrain collision");
@@ -27,23 +33,11 @@ namespace PolyPerfect
             {
                 Destroy(target.gameObject);
 
-                // increasing egg count by 1
-                eggCount++;
-                // Debug.Log("egg count is " + eggCount);
-
-                //if egg count is multiple of 2 , evolve
-
-                if(eggCount % 2 ==0){
-                    // Debug.Log("changing transition as egg count is multiple of 2");
-                    NextState = true;
-                }
-                   
+                NextState = true;
+                eggCollided  = target.gameObject.GetComponent<egg>();
                 
             }
-            if (target.gameObject.CompareTag("terrain"))
-            {
-                Debug.Log("here we have a terrain!");
-            }
+
         }
 
         void OnCollisionEnter(Collision col)
@@ -66,8 +60,28 @@ namespace PolyPerfect
             {
                 // Debug.Log("Animator is not null");
             }
+        instantiated = false;
         }
 
+        void makeNewDino()
+        {
+            Vector3 tP;
+            if (eggCollided.Flying)
+                tP = transform.position + 5*transform.up;
+            else
+                tP = transform.position;
+            GameObject myDino = (GameObject)Instantiate(eggCollided.nextDino, tP, Quaternion.identity);
+            GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
+                    
+            smoke.SetActive(true);
+            smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity);
+            smoke.SetActive(true);
+            smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
+            smoke.SetActive(true);
+            Destroy(gameObject);
+            myDino.SetActive(true);
+
+        }
         // Update is called once per frame
         void FixedUpdate()
         {
@@ -75,21 +89,19 @@ namespace PolyPerfect
             //Debug.Log("evolve count is"+ evolveCount);
             if (NextState)
             {
-               
+                float currPosX = Mathf.Round(transform.position.x);
+                float currPosZ = Mathf.Round(transform.position.z);
+                if (!instantiated && currPosX != lastInstPosX && currPosZ != lastInstPosZ){
+                    
+                    instantiated = true;
+                    lastInstPosX = currPosX;
+                    lastInstPosZ = currPosZ;
+                    
+                    makeNewDino();
 
-                GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
-                GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
-                smoke.SetActive(true);
-                smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity);
-                smoke.SetActive(true);
-                smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
-                smoke.SetActive(true);
-                //gameObject.SetActive(false);
-                myTrex.SetActive(true);
-                // anim.SetBool("isAttacking", false);
-                // anim.SetBool("isRunning", true);
-                // myTrex.transform.rotation = gameObject.transform.rotation;
-                Destroy(gameObject);
+
+
+                }
             }
 
             if (!GameEnded && !Eating)

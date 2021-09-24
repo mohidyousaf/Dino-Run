@@ -8,6 +8,7 @@ public class egg : MonoBehaviour
     //[SerializeField] private material eggColor;
     [SerializeField] private Renderer eggColor;
     //colorGet dinoCol;
+    public bool Flying;
 
     void Awake()
     {
