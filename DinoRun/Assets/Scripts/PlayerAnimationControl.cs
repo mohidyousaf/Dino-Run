@@ -14,11 +14,21 @@ namespace PolyPerfect
         public bool attack = false;
         bool flag = false;
         bool NextState = false;
-        private int evolveCount=0;
+        public int evolveCount=0;
         private int eggCount=0;
 
+        public void StopPlayer()
+        {
+            GameEnded = true;
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking",false);
+        }
         void OnTriggerEnter(Collider target)
         {
+            if (target.gameObject.CompareTag("Dino")) // if enemy encounters our player enemy should play its animation
+            {
+                //anim.SetBool("Attack",true);
+            }
             if (target.gameObject.CompareTag("terrain"))
             {
                 Debug.Log("terrain collision");
@@ -75,8 +85,8 @@ namespace PolyPerfect
             //Debug.Log("evolve count is"+ evolveCount);
             if (NextState)
             {
-               
 
+                evolveCount++;
                 GameObject myTrex=(GameObject)Instantiate(Trex, transform.position, Quaternion.identity);
                 GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
                 smoke.SetActive(true);
@@ -109,11 +119,20 @@ namespace PolyPerfect
                 // Debug.Log("Entered if statement");
                 anim.SetBool("isRunning", false);
 
-                anim.SetBool("isAttacking", true);
+                //anim.SetBool("isAttacking", true);
                 waitingOF(0.10f);
                 //anim.SetBool("isAttacking", false);
             }
         }
+        public void StartAttacking()
+        {
+            anim.SetBool("isAttacking",true);
+        }
+        public int getEvolveCount()
+        {
+            return evolveCount;
+        }
+       
         IEnumerator waitingOF(float seconds)
         {
             // Debug.Log("waiting()");
