@@ -1933,11 +1933,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163411acd8f1f0f49967dac75dc6a23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Trex: {fileID: 0}
-  anim: {fileID: 0}
+  SmokePrefab: {fileID: 7504649875069601950, guid: 13f60d7a1d1bdaf46ae4fa894bac8480, type: 3}
+  anim: {fileID: 95429597981510256}
   GameEnded: 0
   Eating: 0
   attack: 0
+  eggCollided: {fileID: 0}
+  instantiated: 0
+  lastInstPosX: 0
+  lastInstPosZ: 0
 --- !u!114 &628343057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,16 +1954,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeLeft: 0
-  swipeRight: 0
   startTouch: {x: 0, y: 0}
   deltaTouch: {x: 0, y: 0}
-  isDraging: 0
+  isDragging: 0
   isRight: 0
   isLeft: 0
   isMiddle: 0
+  movingVertical: 0
+  movingHorizontal: 0
+  deltaTouchMargin: 35
   player: {fileID: 0}
-  newPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1706331969248000
 GameObject:
   m_ObjectHideFlags: 0
