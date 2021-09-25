@@ -5,10 +5,13 @@ using UnityEngine;
 public class FollowDino : MonoBehaviour
 {
     public Transform currentDino;
+     Vector3  tempPosition; 
 
     void Start()
     {
         currentDino = GameObject.FindWithTag("Dino").transform;
+        transform.position = currentDino.position + new Vector3(-41,5,134);
+        // tempPosition.y = transform.position.y;
         
     }
     [SerializeField]
@@ -19,6 +22,8 @@ public class FollowDino : MonoBehaviour
  
      [SerializeField]
      private bool lookAt = true;
+
+    
  
      private void Update()
      {
@@ -35,19 +40,39 @@ public class FollowDino : MonoBehaviour
             return;
          }
 
-        Vector3  tempPosition; 
+       
 
-         // compute position
-         if(offsetPositionSpace == Space.Self)
-         {
-            tempPosition = currentDino.TransformPoint(new Vector3 (0,30,-40));
-         }
-         else
-         {
-            tempPosition = currentDino.position +  new Vector3 (0,30,-40);
-         }
+       
+        if (currentDino.name == "Brachiosaurus Variant"){
+    
+            tempPosition = currentDino.position +  new Vector3 (0,5,0)+ transform.forward * -15;
+           
+        }
+            
+        else if (currentDino.name == "Velociraptor(Clone)"){
+             tempPosition = currentDino.position +  new Vector3 (0,3,0)+ transform.forward * -12;
+            ;
+        }
+        
 
-         tempPosition.y = transform.position.y;
+        else if (currentDino.name == "Pachycephalosaurus(Clone)"){
+            tempPosition = currentDino.position +  new Vector3 (0,4,0)+ transform.forward * -15;
+            
+        }
+
+        else if (currentDino.name == "Pteranodon(Clone)"){
+            tempPosition = currentDino.position +  new Vector3 (0,2,0)+ transform.forward * -15;
+            
+        }
+
+
+        
+        else{
+            tempPosition = currentDino.position +  new Vector3 (0,10,0)+ transform.forward * -20;
+        }
+        
+
+         
 
          transform.position = tempPosition;
 

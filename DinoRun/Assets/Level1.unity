@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5324641, g: 0.523526, b: 0.52041155, a: 1}
+  m_IndirectSpecularColor: {r: 0.53246355, g: 0.5235256, b: 0.52041084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,6 +211,7 @@ MonoBehaviour:
   instantiated: 0
   lastInstPosX: 0
   lastInstPosZ: 0
+  isFly: 0
 --- !u!114 &110687290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,15 +346,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902984475836162987, guid: 017ea18821762cc46814ee91d6fbf000, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6902984475836162987, guid: 017ea18821762cc46814ee91d6fbf000, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 6902984475836162987, guid: 017ea18821762cc46814ee91d6fbf000, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.96
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6902984475836162987, guid: 017ea18821762cc46814ee91d6fbf000, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1039,6 +1040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: eggF
       objectReference: {fileID: 0}
+    - target: {fileID: 2407115633779152984, guid: f0c395f1858595a47b2cccb3759a7720, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2408580998142397386, guid: f0c395f1858595a47b2cccb3759a7720, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1053,7 +1058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2408580998142397386, guid: f0c395f1858595a47b2cccb3759a7720, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.29
+      value: -18.2
       objectReference: {fileID: 0}
     - target: {fileID: 2408580998142397386, guid: f0c395f1858595a47b2cccb3759a7720, type: 3}
       propertyPath: m_LocalRotation.w

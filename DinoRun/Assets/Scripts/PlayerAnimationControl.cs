@@ -20,6 +20,7 @@ namespace PolyPerfect
         public bool instantiated;
         public float lastInstPosX = 0;
         public float lastInstPosZ = 0;
+        public bool isFly;
 
 
         void OnTriggerEnter(Collider target)
@@ -66,10 +67,17 @@ namespace PolyPerfect
         void makeNewDino()
         {
             Vector3 tP;
-            if (eggCollided.Flying)
+            if (eggCollided.Flying){
                 tP = transform.position + 5*transform.up;
-            else
-                tP = transform.position;
+                Debug.Log("isFly is"+ isFly);
+                isFly= true;
+                Debug.Log("isFly is"+ isFly);
+            }
+        
+            else{
+                tP = new Vector3 (transform.position.x,0,transform.position.z);
+            }
+              
             GameObject myDino = (GameObject)Instantiate(eggCollided.nextDino, tP, Quaternion.identity);
             GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
                     
@@ -78,8 +86,16 @@ namespace PolyPerfect
             smoke.SetActive(true);
             smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
             smoke.SetActive(true);
+
+                 
+            
             Destroy(gameObject);
             myDino.SetActive(true);
+
+            
+
+
+
 
         }
         // Update is called once per frame
