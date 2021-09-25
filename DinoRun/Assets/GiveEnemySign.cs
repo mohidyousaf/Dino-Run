@@ -70,7 +70,7 @@ public bool flag=false;
     private void StartRunningEnemy()
     {
         EnemyAnim.SetBool("isRunning",true);
-        EnemyDinosaur.transform.Translate(Vector3.forward*20);
+        // EnemyDinosaur.transform.Translate(Vector3.forward*10* Time.deltaTime);
         Debug.Log("StartRunning");
     }
     private void StopEnemy()
@@ -85,7 +85,8 @@ public bool flag=false;
         PlayerAnim=PlayerDinosaur.GetComponent<Animator>();
         if(flag)
         {
-            EnemyDinosaur.transform.Translate(transform.forward * Speed * Time.deltaTime);
+            EnemyDinosaur.transform.position = Vector3.MoveTowards(EnemyDinosaur.transform.position,new Vector3(EnemyDinosaur.transform.position.x -30, EnemyDinosaur.transform.position.y,EnemyDinosaur.transform.position.z),Speed * Time.deltaTime);
+            // EnemyDinosaur.transform.Translate(transform.forward * Speed * Time.deltaTime);
             //Debug.Log(EnemyDinosaur.transform.position);
         }
         /*if(uDied)
