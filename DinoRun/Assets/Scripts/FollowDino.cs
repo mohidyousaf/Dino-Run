@@ -10,7 +10,7 @@ public class FollowDino : MonoBehaviour
     void Start()
     {
         currentDino = GameObject.FindWithTag("Dino").transform;
-        transform.position = currentDino.position + new Vector3(-41,15,-140);
+        // transform.position = currentDino.position + new Vector3(-41,15,-140);
         // tempPosition.y = transform.position.y;
         
     }
