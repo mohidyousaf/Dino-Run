@@ -95,19 +95,62 @@ public class Swipe : MonoBehaviour
         }
  
     //Mobile Input
-    /*
-        if (Input.touches.Length > 0){  
+    
+        else if (Input.touches.Length > 0){  
             if(Input.touches[0].phase == TouchPhase.Began){
                 startTouch = Input.touches[0].position;
-                //isDragging= true;
-            }
-
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled){
-                //isDragging= false;
-                reset();
+                isDragging= true;
             }
         }
-*/
+            
+
+        else if ( isDragging && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)){
+            isDragging= false;
+            deltaTouch = Input.touches[0].position - startTouch;
+
+            if(deltaTouch.magnitude > deltaTouchMargin)
+            {
+
+                float x = deltaTouch.x;
+                Vector3 temp = transform.right * 3;
+            
+                if(x<0 && !isLeft)
+                {
+                    player.position -= temp;
+                    
+                    if (isMiddle){
+                        isMiddle = false;
+                        isLeft = true;
+                    }
+                    else if (isRight){
+                        isRight = false;
+                        isMiddle = true;
+                    }
+                }
+
+                else if (x>0 && !isRight)
+                {
+                    player.position += temp;
+                
+                    if (isMiddle){
+                        isMiddle = false;
+                        isRight = true;
+                    }
+                    else if (isLeft){
+                        isLeft = false;
+                        isMiddle = true;
+                    }
+                }
+            
+            }  
+        
+        
+        // player.position = Vector3.MoveTowards(player.position,newPos,Time.deltaTime * 10);
+        
+            reset();
+        }
+    }
+
     //Direction
     /*
         deltaTouch = Vector2.zero;
@@ -137,7 +180,7 @@ public class Swipe : MonoBehaviour
     //magnitude check
 
         
-    }
+    
 
     public void reset()
     {
