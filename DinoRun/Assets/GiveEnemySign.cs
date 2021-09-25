@@ -28,11 +28,11 @@ public bool flag=false;
     IEnumerator DestroyEnemy()
     {
         yield return (new WaitForSeconds(1.2f));
-        GameObject smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y, EnemyDinosaur.transform.position.z),Quaternion.identity);           
+        GameObject smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y, EnemyDinosaur.transform.position.z),transform.rotation);           
         smoke.SetActive(true);
-        smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y+2.5f, EnemyDinosaur.transform.position.z), Quaternion.identity);
+        smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y+2.5f, EnemyDinosaur.transform.position.z), transform.rotation);
         smoke.SetActive(true);
-        smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y+5.9f, EnemyDinosaur.transform.position.z), Quaternion.identity);
+        smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(EnemyDinosaur.transform.position.x, EnemyDinosaur.transform.position.y+5.9f, EnemyDinosaur.transform.position.z),transform.rotation);
         smoke.SetActive(true);
         Debug.Log("should get Destroyed");
         Destroy(EnemyDinosaur);
