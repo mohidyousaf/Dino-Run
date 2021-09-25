@@ -84,14 +84,14 @@ namespace PolyPerfect
                 tP = new Vector3 (transform.position.x,0,transform.position.z);
             }
               
-            GameObject myDino = (GameObject)Instantiate(eggCollided.nextDino, tP, Quaternion.identity);
-            GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),Quaternion.identity);
+            GameObject myDino = (GameObject)Instantiate(eggCollided.nextDino, tP,transform.rotation);
+            GameObject smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),transform.rotation);
                     
             smoke.SetActive(true);
-            smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity);
-            smoke.SetActive(true);
-            smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
-            smoke.SetActive(true);
+            // smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), transform.rotation);
+            // smoke.SetActive(true);
+            // smoke = (GameObject)Instantiate(SmokePrefab, new Vector3(transform.position.x, transform.position.y+5.9f, transform.position.z), Quaternion.identity);
+            // smoke.SetActive(true);
 
                  
             
@@ -132,7 +132,7 @@ namespace PolyPerfect
                 anim.SetBool("isRunning", true);
                 //soundPlayer.AnimalSound();
                 
-                transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 15 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
                 //m_Rigidbody.AddForce(transform.position + Vector3.forward, ) 
