@@ -1298,6 +1298,7 @@ MonoBehaviour:
   instantiated: 0
   lastInstPosX: 0
   lastInstPosZ: 0
+  isFly: 0
 --- !u!114 &1459918594
 MonoBehaviour:
   m_ObjectHideFlags: 0
