@@ -8,6 +8,7 @@ TagManager:
   - Dino
   - terrain
   - boundary
+  - Enemy
   layers:
   - Default
   - TransparentFX
