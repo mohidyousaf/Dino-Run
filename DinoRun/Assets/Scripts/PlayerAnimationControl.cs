@@ -22,7 +22,13 @@ namespace PolyPerfect
         public float lastInstPosZ = 0;
         public bool isFly;
 
-
+        public void StopPlayer()
+        {
+            GameEnded = true;
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking",false);
+            Debug.Log("Inside StopPlayer");
+        }
         void OnTriggerEnter(Collider target)
         {
             
@@ -99,7 +105,7 @@ namespace PolyPerfect
 
         }
         // Update is called once per frame
-        void FixedUpdate()
+        void Update()
         {
             anim = GetComponent<Animator>();
             //Debug.Log("evolve count is"+ evolveCount);
@@ -120,7 +126,7 @@ namespace PolyPerfect
                 }
             }
 
-            if (!GameEnded && !Eating)
+            if (!GameEnded)
             {
                 anim.SetBool("isAttacking", false);
                 anim.SetBool("isRunning", true);
@@ -129,7 +135,7 @@ namespace PolyPerfect
                 transform.Translate(Vector3.forward * 10 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
-                //m_Rigidbody.AddForce(transform.position + Vector3.forward, )
+                //m_Rigidbody.AddForce(transform.position + Vector3.forward, ) 
             }
             else if (GameEnded)
             {
@@ -148,5 +154,13 @@ namespace PolyPerfect
             yield return (new WaitForSeconds(seconds));
         }
 
+        public void StartAttacking()
+        {
+            anim.SetBool("isAttacking",true);
+        }
+        public void EndGame()
+        {
+            GameEnded=true;
+        }
     }
 }
