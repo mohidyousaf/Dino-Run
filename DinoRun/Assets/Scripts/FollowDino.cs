@@ -10,18 +10,18 @@ public class FollowDino : MonoBehaviour
     void Start()
     {
         currentDino = GameObject.FindWithTag("Dino").transform;
-        transform.position = currentDino.position + new Vector3(-41,5,134);
+        // transform.position = currentDino.position + new Vector3(-41,15,-25);
         // tempPosition.y = transform.position.y;
         
     }
     [SerializeField]
      private Vector3 offsetPosition;
  
-     [SerializeField]
-     private Space offsetPositionSpace = Space.Self;
+    //  [SerializeField]
+    //  private Space offsetPositionSpace = Space.Self;
  
-     [SerializeField]
-     private bool lookAt = true;
+    //  [SerializeField]
+    //  private bool lookAt = true;
 
     
  
@@ -45,7 +45,7 @@ public class FollowDino : MonoBehaviour
        
         if (currentDino.name == "Brachiosaurus Variant"){
     
-            tempPosition = currentDino.position +  new Vector3 (0,5,0)+ transform.forward * -15;
+            tempPosition = currentDino.position +  new Vector3 (0,15,0)+ transform.forward * -30;
            
         }
             
@@ -56,7 +56,7 @@ public class FollowDino : MonoBehaviour
         
 
         else if (currentDino.name == "Pachycephalosaurus(Clone)"){
-            tempPosition = currentDino.position +  new Vector3 (0,4,0)+ transform.forward * -15;
+            tempPosition = currentDino.position +  new Vector3 (0,4,0)+ transform.forward * -10;
             
         }
 
