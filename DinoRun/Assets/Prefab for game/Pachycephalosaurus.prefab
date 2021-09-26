@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8039768144559833262
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 537855730, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 8845863266535987148, guid: 02a2ddeffe17a4e4e900d13767db8b2c, type: 3}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0000001872535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659319839131, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659320194555, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_Name
+      value: Pachycephalosaurus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594066659320194555, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 71ec8a13f23e7d84695599f4554d8c8b, type: 3}

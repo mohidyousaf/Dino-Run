@@ -21,7 +21,9 @@ namespace PolyPerfect
         public float lastInstPosX = 0;
         public float lastInstPosZ = 0;
         public bool isFly;
-
+        public int countMistakeOfPlayerForHurdle=0;
+        public GameObject bloodPrefab;
+        bool uDied=false;
         public void StopPlayer()
         {
             GameEnded = true;
@@ -44,9 +46,43 @@ namespace PolyPerfect
                 eggCollided  = target.gameObject.GetComponent<egg>();
                 
             }
+            if(target.gameObject.CompareTag("Hurdle"))
+            {
+                 if(gameObject.name=="Brachiosaurus Variant")
+                 {
+                    Debug.Log("I am a hurdle plz destroy me");
+                    Destroy(target.gameObject);
+                 }
+                 else
+                 {
+                      countMistakeOfPlayerForHurdle++;
+                      if(countMistakeOfPlayerForHurdle==2)
+                      {
+                            /*GameObject smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),transform.rotation);           
+                            smoke.SetActive(true);*/
+                            uDied=true;
+                            Debug.Log("player is Dead ");
+                            anim.SetBool("isDead",true);
+                            StartCoroutine(delayfordeath());
+                      }
+                 }
+            }
 
         }
-
+        IEnumerator delayfordeath()
+        {
+            yield return new WaitForSeconds(1.0f);
+            if(gameObject.name=="Pachycephalosaurus(Clone)")
+            {
+                GameObject smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z),transform.rotation);           
+                smoke.SetActive(true);
+                smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+2.5f, gameObject.transform.position.z), transform.rotation);
+                smoke.SetActive(true);
+                smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+5.9f, gameObject.transform.position.z),transform.rotation);
+                smoke.SetActive(true);
+            }
+            Destroy(gameObject);
+        }
         void OnCollisionEnter(Collision col)
         {
             if (col.gameObject.CompareTag("terrain"))
@@ -126,18 +162,18 @@ namespace PolyPerfect
                 }
             }
 
-            if (!GameEnded)
+            if (!GameEnded && !uDied)
             {
                 anim.SetBool("isAttacking", false);
                 anim.SetBool("isRunning", true);
                 //soundPlayer.AnimalSound();
                 
-                transform.Translate(Vector3.forward * 15 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 50 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
                 //m_Rigidbody.AddForce(transform.position + Vector3.forward, ) 
             }
-            else if (GameEnded)
+            else if (GameEnded )
             {
 
                 // Debug.Log("Entered if statement");
@@ -146,6 +182,12 @@ namespace PolyPerfect
                 anim.SetBool("isAttacking", true);
                 waitingOF(0.10f);
                 //anim.SetBool("isAttacking", false);
+            }
+            else if(uDied)
+            {
+                anim.SetBool("isRunning", false);
+                Debug.Log("hi dead person");
+                anim.SetBool("isDead",true);
             }
         }
         IEnumerator waitingOF(float seconds)
