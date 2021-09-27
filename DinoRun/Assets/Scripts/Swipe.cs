@@ -7,7 +7,7 @@ public class Swipe : MonoBehaviour
     public Vector2 startTouch, deltaTouch;
     public bool isDragging, isRight, isLeft, isMiddle, movingVertical, movingHorizontal;
     public float deltaTouchMargin = 35; //the delta touch magnitude at which player moves
-
+    public int change;
     public Transform player;
     
 
@@ -34,9 +34,31 @@ public class Swipe : MonoBehaviour
    
     public void Update()
     {
+         
         //updating dinosaur if dinosaur changed
         if (!player){
             changeDino();
+        }
+
+        if (player.name == "Brachiosaurus Variant" || player.name == "Brachiosaurus Variant(Clone)"){
+    
+            change = 3;
+           
+        }
+            
+        else if (player.name == "Velociraptor(Clone)"){
+            change = 5;
+        }
+        
+
+        else if (player.name == "Pachycephalosaurus(Clone)"){
+            change = 5;
+            
+        }
+
+        else if (player.name == "Pteranodon(Clone)"){
+           change = 5;
+            
         }
         
         //Mouse Input
@@ -56,10 +78,11 @@ public class Swipe : MonoBehaviour
             {
 
                 float x = deltaTouch.x;
-                Vector3 temp = transform.right * 3;
+                Vector3 temp = transform.right * change;
             
                 if(x<0 && !isLeft)
                 {
+                    // player.position= Vector3.MoveTowards(player.position,player.position-temp,200*Time.deltaTime);
                     player.position -= temp;
                     
                     if (isMiddle){
@@ -74,6 +97,7 @@ public class Swipe : MonoBehaviour
 
                 else if (x>0 && !isRight)
                 {
+                    // player.position= Vector3.MoveTowards(player.position,player.position+temp,200*Time.deltaTime);
                     player.position += temp;
                    
                     if (isMiddle){
@@ -116,6 +140,7 @@ public class Swipe : MonoBehaviour
             
                 if(x<0 && !isLeft)
                 {
+                    // player.position= Vector3.MoveTowards(player.position,player.position-temp,5*Time.deltaTime);
                     player.position -= temp;
                     
                     if (isMiddle){
@@ -130,6 +155,7 @@ public class Swipe : MonoBehaviour
 
                 else if (x>0 && !isRight)
                 {
+                    // player.position= Vector3.MoveTowards(player.position,player.position+temp,5*Time.deltaTime);
                     player.position += temp;
                 
                     if (isMiddle){

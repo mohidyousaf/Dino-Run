@@ -43,7 +43,7 @@ public class FollowDino : MonoBehaviour
        
 
        
-        if (currentDino.name == "Brachiosaurus Variant"){
+        if (currentDino.name == "Brachiosaurus Variant" || currentDino.name == "Brachiosaurus Variant(Clone)" ){
     
             tempPosition = currentDino.position +  new Vector3 (0,15,0)+ transform.forward * -50;
            

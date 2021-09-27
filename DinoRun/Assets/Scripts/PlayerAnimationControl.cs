@@ -192,7 +192,7 @@ namespace PolyPerfect
                 anim.SetBool("isRunning", true);
                 //soundPlayer.AnimalSound();
                 
-                transform.Translate(Vector3.forward * 50 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 20 * Time.deltaTime);
                 //Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
                 //m_Rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime * speed);
                 //m_Rigidbody.AddForce(transform.position + Vector3.forward, ) 
@@ -204,7 +204,7 @@ namespace PolyPerfect
                 anim.SetBool("isRunning", false);
 
                 anim.SetBool("isAttacking", true);
-                StartCoroutine(waitingOF(7f));
+                StartCoroutine(waitingOF(4f));
                 //anim.SetBool("isAttacking", false);
                 
 
