@@ -1942,6 +1942,12 @@ MonoBehaviour:
   instantiated: 0
   lastInstPosX: 0
   lastInstPosZ: 0
+  isFly: 0
+  countMistakeOfPlayerForHurdle: 0
+  bloodPrefab: {fileID: 0}
+  lvlManager: {fileID: 0}
+  next: {fileID: 0}
+  end: {fileID: 0}
 --- !u!114 &628343057
 MonoBehaviour:
   m_ObjectHideFlags: 0

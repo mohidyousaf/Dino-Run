@@ -9,6 +9,9 @@ TagManager:
   - terrain
   - boundary
   - Enemy
+  - Hurdle
+  - end
+  - lvlManager
   layers:
   - Default
   - TransparentFX

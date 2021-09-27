@@ -74,13 +74,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2005425975, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
+      propertyPath: end
+      value: 
+      objectReference: {fileID: 6302982741030560441, guid: b41f18b5641ffe74b9431b192abf72cb, type: 3}
+    - target: {fileID: 2005425975, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
+      propertyPath: next
+      value: 
+      objectReference: {fileID: 7406404149388534710, guid: 6efeee5e254572b40999539826cc26ae, type: 3}
+    - target: {fileID: 2005425975, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005425975, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
       propertyPath: bloodPrefab
       value: 
-      objectReference: {fileID: 8845863266535987148, guid: 02a2ddeffe17a4e4e900d13767db8b2c, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2005425977, guid: b8de20f91b11908419edb3cd876d6f1b, type: 3}
       propertyPath: m_Enabled
       value: 0

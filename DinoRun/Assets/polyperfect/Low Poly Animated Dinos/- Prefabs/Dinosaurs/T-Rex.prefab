@@ -2690,7 +2690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4074189310207666
 Transform:
   m_ObjectHideFlags: 0
@@ -2840,16 +2840,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a689e15f0adf1f948b3216aca75aa56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeLeft: 0
-  swipeRight: 0
   startTouch: {x: 0, y: 0}
   deltaTouch: {x: 0, y: 0}
-  isDraging: 0
+  isDragging: 0
   isRight: 0
   isLeft: 0
   isMiddle: 0
+  movingVertical: 0
+  movingHorizontal: 0
+  deltaTouchMargin: 35
   player: {fileID: 4074189310207666}
-  newPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2145052676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,11 +2862,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163411acd8f1f0f49967dac75dc6a23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Trex: {fileID: 0}
+  done: 0
+  SmokePrefab: {fileID: 0}
   anim: {fileID: 0}
   GameEnded: 0
   Eating: 0
   attack: 0
+  eggCollided: {fileID: 0}
+  instantiated: 0
+  lastInstPosX: 0
+  lastInstPosZ: 0
+  isFly: 0
+  countMistakeOfPlayerForHurdle: 0
+  bloodPrefab: {fileID: 0}
+  lvlManager: {fileID: 0}
+  next: {fileID: 0}
+  end: {fileID: 0}
+  eventSystem: {fileID: 0}
 --- !u!1 &1974999610606678
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using UnityEngine.SceneManagement;
+
 namespace PolyPerfect
 {
     public class PlayerAnimationControl : MonoBehaviour
     {
+        public int done = 0;
         //public GameObject Trex;
         public GameObject SmokePrefab;
         public Animator anim;
@@ -24,6 +28,16 @@ namespace PolyPerfect
         public int countMistakeOfPlayerForHurdle=0;
         public GameObject bloodPrefab;
         bool uDied=false;
+
+        bool buttonClicked, buttonClicked2;
+
+        public Manager lvlManager; 
+
+        //screens
+        [SerializeField] public GameObject next;
+        [SerializeField] public GameObject end;
+        [SerializeField] public GameObject eventSystem;
+
         public void StopPlayer()
         {
             GameEnded = true;
@@ -48,7 +62,7 @@ namespace PolyPerfect
             }
             if(target.gameObject.CompareTag("Hurdle"))
             {
-                 if(gameObject.name=="Brachiosaurus Variant")
+                 if(gameObject.name=="Brachiosaurus Variant" || gameObject.name=="Brachiosaurus Variant(Clone)" )
                  {
                     Debug.Log("I am a hurdle plz destroy me");
                     Destroy(target.gameObject);
@@ -97,6 +111,13 @@ namespace PolyPerfect
         //public Common_PlaySound soundPlayer;
         void Start()
         {
+            buttonClicked = false;
+            
+            buttonClicked2 = false;
+            //next = Resources.Load<GameObject>("next") as GameObject;
+            //end = GameObject.FindWithTag("end");
+
+            //lvlManager = GameObject.FindWithTag("lvlManager").GetComponent<Manager>();
           
             // anim = GetComponent<Animator>();
             if (anim != null)
@@ -143,6 +164,9 @@ namespace PolyPerfect
         // Update is called once per frame
         void Update()
         {
+            if (!lvlManager)
+                findLevelManager();
+
             anim = GetComponent<Animator>();
             //Debug.Log("evolve count is"+ evolveCount);
             if (NextState)
@@ -180,20 +204,46 @@ namespace PolyPerfect
                 anim.SetBool("isRunning", false);
 
                 anim.SetBool("isAttacking", true);
-                waitingOF(0.10f);
+                StartCoroutine(waitingOF(7f));
                 //anim.SetBool("isAttacking", false);
+                
+
             }
             else if(uDied)
             {
                 anim.SetBool("isRunning", false);
                 Debug.Log("hi dead person");
                 anim.SetBool("isDead",true);
+                StartCoroutine(waitingForTry(0.3f));
             }
         }
+
         IEnumerator waitingOF(float seconds)
         {
             // Debug.Log("waiting()");
             yield return (new WaitForSeconds(seconds));
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            if(!buttonClicked)
+            {
+                if (currentScene == 5)
+                    showEndScreen();
+                else
+                    showNextScreen();
+
+            }
+        
+        }
+
+        IEnumerator waitingForTry(float seconds)
+        {
+            // Debug.Log("waiting()");
+            yield return (new WaitForSeconds(seconds));
+
+            if(!buttonClicked2)
+            {
+                showTryScreen();
+            }
+        
         }
 
         public void StartAttacking()
@@ -204,5 +254,29 @@ namespace PolyPerfect
         {
             GameEnded=true;
         }
+        public void showEndScreen()
+        { 
+            SceneManager.LoadScene(8, LoadSceneMode.Additive);
+            buttonClicked = true;
+        }
+
+        public void findLevelManager()
+        {
+            done = 1;
+            lvlManager = GameObject.FindWithTag("lvlManager").GetComponent<Manager>();
+        }
+
+        public void showNextScreen()
+        {
+            SceneManager.LoadScene(6, LoadSceneMode.Additive);
+            buttonClicked = true;
+        }
+        public void showTryScreen()
+        {
+            SceneManager.LoadScene(7, LoadSceneMode.Additive);
+            buttonClicked2 = true;
+        }
+
+
     }
 }
