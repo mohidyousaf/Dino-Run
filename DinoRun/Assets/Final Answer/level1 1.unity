@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5324641, g: 0.523526, b: 0.52041155, a: 1}
+  m_IndirectSpecularColor: {r: 0.5324638, g: 0.52352583, b: 0.520411, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1575,7 +1575,7 @@ GameObject:
   - component: {fileID: 1291255306}
   m_Layer: 0
   m_Name: Swipe Controller
-  m_TagString: Untagged
+  m_TagString: SwipeController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1601,6 +1601,7 @@ MonoBehaviour:
   movingVertical: 0
   movingHorizontal: 0
   deltaTouchMargin: 35
+  change: 0
   player: {fileID: 0}
 --- !u!4 &1291255307
 Transform:

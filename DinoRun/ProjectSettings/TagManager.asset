@@ -12,6 +12,7 @@ TagManager:
   - Hurdle
   - end
   - lvlManager
+  - SwipeController
   layers:
   - Default
   - TransparentFX

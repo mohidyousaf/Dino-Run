@@ -11,17 +11,34 @@ public class Swipe : MonoBehaviour
     public Transform player;
     
 
-    public void Start()
+   public void Start()
     {
         changeDino();
         
-        isMiddle = true;
-        isRight = isLeft = false;
         
-        isDragging = false;
-        startTouch = deltaTouch = Vector2.zero;
+        if (gameObject.tag == "SwipeController" || gameObject.name == "Brachiosaurus Variant")
+        {
+            isMiddle = true;
+            isRight = isLeft = false;
+            isDragging = false;
+            startTouch = deltaTouch = Vector2.zero;
 
-        movingVertical = true;
+            movingVertical = true;
+        }
+        else
+        {
+        Swipe swTest = this.GetComponent<Swipe>();
+
+        Swipe swController = GameObject.FindWithTag("SwipeController").GetComponent<Swipe>();
+
+        swTest.isMiddle = swController.isMiddle;
+            swTest.isLeft = swController.isLeft;
+            swTest.isRight = swController.isRight;
+            swTest.movingVertical = swController.movingVertical;
+            Debug.Log("new isMiddle:" + swTest.isMiddle);
+        }
+
+            
         
     }
 
