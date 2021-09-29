@@ -41,7 +41,17 @@ public class WayPointController : MonoBehaviour
                 float speed = 40;
 
                 currentDino.rotation = Quaternion.Lerp (currentDino.rotation, transform.rotation, Time.time * speed);
+                /*
+                Vector3 tempPosition = currentDino.position;
+                        if (dinoS.movingVertical)
+            tempPosition.z = transform.position.z;
+        else
+            tempPosition.x = transform.position.x;
+
+         camera.position = tempPosition;*/
+                //camera.position = currentDino.position;
                 camera.rotation = Quaternion.Lerp (camera.rotation, transform.rotation, Time.time * speed);
+
 
 
                 isPassed = true;
