@@ -71,9 +71,6 @@ public class Swipe : MonoBehaviour
         else if (player.name == "Pachycephalosaurus(Clone)"){
             if(movingVertical)
                 change = 3.5f;
-            else
-                change = 40f;
-            
         }
 
         else if (player.name == "Pteranodon(Clone)"){
