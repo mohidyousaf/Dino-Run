@@ -7,7 +7,7 @@ public class Swipe : MonoBehaviour
     public Vector2 startTouch, deltaTouch;
     public bool isDragging, isRight, isLeft, isMiddle, movingVertical, movingHorizontal;
     public float deltaTouchMargin = 35; //the delta touch magnitude at which player moves
-    public int change;
+    public float change;
     public Transform player;
     
 
@@ -59,17 +59,17 @@ public class Swipe : MonoBehaviour
 
         if (player.name == "Brachiosaurus Variant" || player.name == "Brachiosaurus Variant(Clone)"){
     
-            change = 3;
+            change = 2.9f;
            
         }
             
         else if (player.name == "Velociraptor(Clone)"){
-            change = 5;
+            change = 5.3f;
         }
         
 
         else if (player.name == "Pachycephalosaurus(Clone)"){
-            change = 4;
+            change = 5.1f;
             
         }
 
