@@ -28,6 +28,8 @@ namespace PolyPerfect
         public int countMistakeOfPlayerForHurdle=0;
         public GameObject bloodPrefab;
         bool uDied=false;
+        [SerializeField] GameObject deathControl;
+
 
         bool buttonClicked, buttonClicked2;
 
@@ -69,16 +71,15 @@ namespace PolyPerfect
                  }
                  else
                  {
-                      countMistakeOfPlayerForHurdle++;
-                      if(countMistakeOfPlayerForHurdle==2)
-                      {
-                            /*GameObject smoke = (GameObject)Instantiate(bloodPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),transform.rotation);           
-                            smoke.SetActive(true);*/
-                            uDied=true;
-                            Debug.Log("player is Dead ");
-                            anim.SetBool("isDead",true);
-                            StartCoroutine(delayfordeath());
-                      }
+                     deathControl.GetComponent<PlayerDeath>().reduceChance();
+                     if(deathControl.GetComponent<PlayerDeath>().getChances()==0)
+                     {
+                                uDied=true;
+                                Debug.Log("player is Dead ");
+                                anim.SetBool("isDead",true);
+                                StartCoroutine(delayfordeath());
+                     }
+
                  }
             }
 
@@ -164,6 +165,11 @@ namespace PolyPerfect
         // Update is called once per frame
         void Update()
         {
+            if(deathControl==null)
+            {
+                deathControl= GameObject.FindGameObjectWithTag("CounterForDeath");
+            }
+
             if (!lvlManager)
                 findLevelManager();
 

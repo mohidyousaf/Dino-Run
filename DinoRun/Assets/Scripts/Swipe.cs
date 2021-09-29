@@ -64,12 +64,12 @@ public class Swipe : MonoBehaviour
         }
             
         else if (player.name == "Velociraptor(Clone)"){
-            change = 5.3f;
+            change = 5f;
         }
         
 
         else if (player.name == "Pachycephalosaurus(Clone)"){
-            change = 5.1f;
+            change = 5f;
             
         }
 
@@ -99,8 +99,9 @@ public class Swipe : MonoBehaviour
             
                 if(x<0 && !isLeft)
                 {
-                    // player.position= Vector3.MoveTowards(player.position,player.position-temp,200*Time.deltaTime);
-                    player.position -= temp;
+                     
+                    player.position=  Vector3.Lerp (player.position,player.position-temp, Time.deltaTime * 120);  
+                    // player.position -= temp;
                     
                     if (isMiddle){
                         isMiddle = false;
@@ -114,8 +115,8 @@ public class Swipe : MonoBehaviour
 
                 else if (x>0 && !isRight)
                 {
-                    // player.position= Vector3.MoveTowards(player.position,player.position+temp,200*Time.deltaTime);
-                    player.position += temp;
+                    player.position= Vector3.Lerp (player.position,player.position+temp, Time.deltaTime * 120); 
+                    // player.position += temp;
                    
                     if (isMiddle){
                         isMiddle = false;

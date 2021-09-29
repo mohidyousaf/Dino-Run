@@ -46,6 +46,7 @@ public bool flag=false;
             PlayerDinosaur.GetComponent<PlayerAnimationControl>().StopPlayer();
             PlayerDinosaur.GetComponent<PlayerAnimationControl>().GameEnded=true;
             PlayerDinosaur.GetComponent<PlayerAnimationControl>().EndGame();
+            EnemyDinosaur.transform.position=new Vector3(EnemyDinosaur.transform.position.x,EnemyDinosaur.transform.position.y,PlayerDinosaur.transform.position.z);
             StartRunningEnemy();
             flag=true;
             Debug.Log("Why trigger not working");
