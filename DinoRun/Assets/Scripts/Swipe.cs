@@ -69,7 +69,7 @@ public class Swipe : MonoBehaviour
         
 
         else if (player.name == "Pachycephalosaurus(Clone)"){
-            change = 5;
+            change = 4;
             
         }
 

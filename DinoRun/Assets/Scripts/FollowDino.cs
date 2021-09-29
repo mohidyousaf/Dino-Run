@@ -45,18 +45,18 @@ public class FollowDino : MonoBehaviour
        
         if (currentDino.name == "Brachiosaurus Variant" || currentDino.name == "Brachiosaurus Variant(Clone)" ){
     
-            tempPosition = currentDino.position +  new Vector3 (0,15,0)+ transform.forward * -50;
+            tempPosition = currentDino.position +  new Vector3 (0,15,0)+ transform.forward * -65;
            
         }
             
         else if (currentDino.name == "Velociraptor(Clone)"){
-             tempPosition = currentDino.position +  new Vector3 (0,3,0)+ transform.forward * -12;
+             tempPosition = currentDino.position +  new Vector3 (0,5,0)+ transform.forward * -20;
             ;
         }
         
 
         else if (currentDino.name == "Pachycephalosaurus(Clone)"){
-            tempPosition = currentDino.position +  new Vector3 (0,4,0)+ transform.forward * -10;
+            tempPosition = currentDino.position +  new Vector3 (0,4,0)+ transform.forward * -20;
             
         }
 

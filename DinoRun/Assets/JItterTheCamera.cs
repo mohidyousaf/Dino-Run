@@ -17,9 +17,9 @@ public class JItterTheCamera : MonoBehaviour
     private void OnTriggerEnter()
     {
         Debug.Log("Player Name:"+player.name);
-        if(!(player.name=="Brachiosaurus Variant"))
+        if(!(player.name=="Brachiosaurus Variant" || player.name=="Brachiosaurus Variant(Clone)"))
         {
-        Debug.Log("i am going to jitter");
+            Debug.Log("i am going to jitter");
             camera.GetComponent<StressReceiver>().InduceStress(0.5607f);
             
         }
